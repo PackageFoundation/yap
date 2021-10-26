@@ -1,0 +1,9 @@
+repos:
+  - repo: https://github.com/gruntwork-io/pre-commit
+    rev: v0.1.16 # Get the latest from: https://github.com/gruntwork-io/pre-commit/releases
+    hooks:
+      - id: shellcheck
+      - id: gofmt
+      - id: golint
+      - id: goimports
+      - id: markdown-link-check
