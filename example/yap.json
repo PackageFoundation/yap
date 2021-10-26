@@ -1,0 +1,12 @@
+{
+    "name": "httpserver project",
+    "description": "The project description",
+    "build_dir": "/tmp",
+    "output": "artifacts",
+    "projects": [
+        {
+            "name": "httpserver",
+            "install": true
+        }
+    ]
+}
