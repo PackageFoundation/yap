@@ -142,22 +142,17 @@ key:ubuntu="this will apply only to ubuntu builds"
 | `ubuntu` | All ubuntu releases |
 | `amazon-1` | Amazonlinux 1 |
 | `amazon-2` | Amazonlinux 2 |
-| `centos-7` | Centos 7 |
 | `centos-8` | Centos 8 |
 | `debian-jessie` | Debian jessie |
 | `debian-stretch` | Debian stretch |
 | `debian-buster` | Debian buster |
 | `fedora-32` | Fedora 32 |
 | `fedora-33` | Fedora 33 |
-| `oracle-7` | Oraclelinux 7 |
 | `oracle-8` | Oraclelinux 8 |
 | `rocky-8` | Rockylinux 8 |
-| `ubuntu-trusty` | Ubuntu trusty |
 | `ubuntu-xenial` | Ubuntu xenial |
 | `ubuntu-bionic` | Ubuntu bionic |
-| `ubuntu-eoan` | Ubuntu eoan |
 | `ubuntu-focal` | Ubuntu focal |
-| `ubuntu-groovy` | Ubuntu groovy |
 
 Directives are used to specify variables that only apply to a limited set of
 build targets. All variables can use directives including user defined

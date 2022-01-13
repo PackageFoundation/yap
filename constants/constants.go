@@ -43,7 +43,7 @@ var (
 		"debian-stretch": "stretch",
 		"debian-buster":  "buster",
 		"oracle-8":       ".ol8.",
-		"rocky-8":        ".rl8.",
+		"rocky-8":        ".el8.",
 		"ubuntu-bionic":  "bionic",
 		"ubuntu-focal":   "focal",
 	}
