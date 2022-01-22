@@ -3,13 +3,22 @@ package resolver
 import (
 	"container/list"
 	"fmt"
+	"os"
 	"regexp"
 	"strings"
 )
 
 var (
-	keyReg = regexp.MustCompile(`(\$\{[^\}]+\})`)
+	keyReg    = regexp.MustCompile(`(\$\{[^\}]+\})`)
+	resolvers = []ResolverFunc{
+		{resolve: func(r *Resolver, key string) (val string, success bool) { val, success = r.data[key]; return }},
+		{resolve: func(r *Resolver, key string) (val string, success bool) { return os.LookupEnv(key) }},
+	}
 )
+
+type ResolverFunc struct {
+	resolve func(r *Resolver, key string) (string, bool)
+}
 
 type element struct {
 	Key   string
@@ -53,15 +62,20 @@ func (r *Resolver) resolve(item *element) (err error) {
 
 	for _, keyFull := range keys {
 		key := keyFull[2 : len(keyFull)-1]
-
-		val, ok := r.data[key]
-		if !ok {
+		wasSolved := false
+		for _, rslvr := range resolvers {
+			val, ok := rslvr.resolve(r, key)
+			if ok {
+				wasSolved = true
+				*item.Val = strings.Replace(*item.Val, keyFull, val, 1)
+				break
+			}
+		}
+		if !wasSolved {
 			fmt.Printf(`resolver: Failed to resolve '%s' in '%s="%s"'`,
 				keyFull, item.Key, *item.Val)
 			return
 		}
-
-		*item.Val = strings.Replace(*item.Val, keyFull, val, 1)
 	}
 
 	r.data[item.Key] = *item.Val
