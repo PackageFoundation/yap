@@ -9,14 +9,10 @@ import (
 )
 
 var (
-	keyReg    = regexp.MustCompile(`(\$\{[^\}]+\})`)
-	resolvers = []ResolverFunc{
-		{resolve: func(r *Resolver, key string) (val string, success bool) { val, success = r.data[key]; return }},
-		{resolve: func(r *Resolver, key string) (val string, success bool) { return os.LookupEnv(key) }},
-	}
+	keyReg = regexp.MustCompile(`(\$\{[^\}]+\})`)
 )
 
-type ResolverFunc struct {
+type resolverFunc struct {
 	resolve func(r *Resolver, key string) (string, bool)
 }
 
@@ -59,18 +55,28 @@ func (r *Resolver) AddList(key string, vals []string) {
 
 func (r *Resolver) resolve(item *element) (err error) {
 	keys := keyReg.FindAllString(*item.Val, -1)
+	resolvers := []resolverFunc{
+		{resolve: func(r *Resolver, key string) (val string, success bool) {
+			val, success = r.data[key]
+			return
+		}},
+		{resolve: func(r *Resolver, key string) (val string, success bool) { return os.LookupEnv(key) }},
+	}
 
 	for _, keyFull := range keys {
 		key := keyFull[2 : len(keyFull)-1]
 		wasSolved := false
+
 		for _, rslvr := range resolvers {
 			val, ok := rslvr.resolve(r, key)
 			if ok {
 				wasSolved = true
 				*item.Val = strings.Replace(*item.Val, keyFull, val, 1)
+
 				break
 			}
 		}
+
 		if !wasSolved {
 			fmt.Printf(`resolver: Failed to resolve '%s' in '%s="%s"'`,
 				keyFull, item.Key, *item.Val)
@@ -89,6 +95,7 @@ func (r *Resolver) Resolve() (err error) {
 		if elem == nil {
 			return
 		}
+
 		item := elem.Value.(*element)
 		item.Count += 1
 
@@ -111,5 +118,6 @@ func New() (reslv *Resolver) {
 		queue: list.New(),
 		data:  map[string]string{},
 	}
+
 	return
 }
