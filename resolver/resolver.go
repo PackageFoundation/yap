@@ -58,6 +58,7 @@ func (r *Resolver) resolve(item *element) (err error) {
 	resolvers := []resolverFunc{
 		{resolve: func(r *Resolver, key string) (val string, success bool) {
 			val, success = r.data[key]
+
 			return
 		}},
 		{resolve: func(r *Resolver, key string) (val string, success bool) { return os.LookupEnv(key) }},
