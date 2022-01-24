@@ -7,7 +7,7 @@ import (
 	"github.com/packagefoundation/yap/utils"
 )
 
-type DebianProject struct {
+type Project struct {
 	Name       string
 	Root       string
 	MirrorRoot string
@@ -17,7 +17,7 @@ type DebianProject struct {
 	Release    string
 }
 
-func (p *DebianProject) getBuildDir() (path string, err error) {
+func (p *Project) getBuildDir() (path string, err error) {
 	path = filepath.Join(p.BuildRoot, p.Distro+"-"+p.Release)
 
 	err = utils.MkdirAll(path)
@@ -28,7 +28,7 @@ func (p *DebianProject) getBuildDir() (path string, err error) {
 	return
 }
 
-func (p *DebianProject) Prep() (err error) {
+func (p *Project) Prep() (err error) {
 	buildDir, err := p.getBuildDir()
 	if err != nil {
 		return
@@ -36,6 +36,7 @@ func (p *DebianProject) Prep() (err error) {
 
 	keyPath := filepath.Join(p.Path, "..", "sign.key")
 	exists, err := utils.Exists(keyPath)
+
 	if err != nil {
 		return
 	}
@@ -55,7 +56,7 @@ func (p *DebianProject) Prep() (err error) {
 	return
 }
 
-func (p *DebianProject) Create() (err error) {
+func (p *Project) Create() (err error) {
 	buildDir, err := p.getBuildDir()
 	if err != nil {
 		return

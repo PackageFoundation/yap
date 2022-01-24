@@ -19,4 +19,4 @@ jobs:
           version: latest
 
           # Optional: golangci-lint command line arguments.
-          args: --enable-all --disable=cyclop,exhaustivestruct,forbidigo,funlen,gochecknoinits,gochecknoglobals,wrapcheck,gofumpt,gocognit,gomnd,gocyclo,maligned,golint,scopelint,interfacer
+          args: --enable-all --disable=cyclop,exhaustivestruct,forbidigo,funlen,gochecknoinits,gochecknoglobals,wrapcheck,gofumpt,gocognit,gomnd,gocyclo,maligned,golint,scopelint,interfacer,forcetypeassert
