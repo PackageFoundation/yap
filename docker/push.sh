@@ -2,6 +2,6 @@
 set -e
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-for dockerfile in $(ls Dockerfile.*) ; do
-    docker push m0rf30/yap-${dockerfile#Dockerfile.}:latest
+for distro in $(ls -d) ; do
+    docker push "packagefoundation/yap-${distro}:latest"
 done
