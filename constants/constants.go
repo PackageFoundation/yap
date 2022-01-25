@@ -7,10 +7,7 @@ import (
 )
 
 const (
-	DockerOrg = "yap/"
-)
-
-const (
+	DockerOrg   = "yap/"
 	ColorYellow = "\033[33m"
 	ColorBlue   = "\033[34m"
 	ColorWhite  = "\033[37m"

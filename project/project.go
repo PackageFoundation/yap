@@ -34,11 +34,17 @@ type multipleProjectConf struct {
 }
 
 type Project struct {
-	Name         string
-	DependsOn    []*Project
+	BuildRoot    string
 	Builder      *builder.Builder
-	Packer       packer.Packer
+	DependsOn    []*Project
+	Distro       string
 	HasToInstall bool
+	MirrorRoot   string
+	Name         string
+	Packer       packer.Packer
+	Path         string
+	Release      string
+	Root         string
 }
 
 type MultipleProject struct {

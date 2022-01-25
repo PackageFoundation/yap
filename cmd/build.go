@@ -9,10 +9,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var (
-	ArgLenght = 2
-	NoCache   bool
-)
+const argLenght = 2
+
+var noCache bool
 
 // buildCmd represents the command to build the entire project.
 var buildCmd = &cobra.Command{
@@ -21,7 +20,7 @@ var buildCmd = &cobra.Command{
 	Args:  cobra.MinimumNArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
 		path, err := os.Getwd()
-		if len(args) == ArgLenght {
+		if len(args) == argLenght {
 			path = args[1]
 		}
 		if err != nil {
@@ -39,7 +38,7 @@ var buildCmd = &cobra.Command{
 		if err != nil {
 			log.Fatal(err)
 		}
-		if NoCache {
+		if noCache {
 			if err := multiplePrj.NoCache(); err != nil {
 				log.Fatal(err)
 			}
@@ -56,5 +55,5 @@ var buildCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(buildCmd)
-	buildCmd.Flags().BoolVarP(&NoCache, "no-cache", "c", false, "Do not use cache when building the project")
+	buildCmd.Flags().BoolVarP(&noCache, "no-cache", "c", false, "Do not use cache when building the project")
 }

@@ -61,12 +61,14 @@ func (p *Pack) parseDirective(input string) (key string, pry int, err error) { /
 	split := strings.Split(input, ":")
 	key = split[0]
 
+	numElem := 2
+
 	switch {
 	case len(split) == 1:
 		pry = 0
 
 		return
-	case len(split) != 2:
+	case len(split) != numElem:
 		fmt.Printf("pack: Invalid use of ':' directive in '%s'\n", input)
 
 		return
