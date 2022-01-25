@@ -1,0 +1,12 @@
+{
+    "name": "Yap",
+    "description": "Yet another packager",
+    "build_dir": "/tmp",
+    "output": "artifacts",
+    "projects": [
+        {
+            "name": "yap",
+            "install": true
+        }
+    ]
+}
