@@ -106,8 +106,7 @@ key:ubuntu="this will apply only to Ubuntu  builds"
 | `debian-jessie`  | Debian Jessie            |
 | `debian-stretch` | Debian Stretch           |
 | `debian-buster`  | Debian Buster            |
-| `fedora-32`      | Fedora 32                |
-| `fedora-33`      | Fedora 33                |
+| `fedora-35`      | Fedora 35                |
 | `oracle-8`       | Oracle Linux 8            |
 | `rocky-8`        | Rocky Linux 8             |
 | `ubuntu-bionic`  | Ubuntu Bionic            |
@@ -145,8 +144,7 @@ The directives above are sorted from lowest to the highest priority.
 | `debian-jessie`  | Debian Jessie            |
 | `debian-stretch` | Debian Stretch           |
 | `debian-buster`  | Debian Buster            |
-| `fedora-32`      | Fedora 32                |
-| `fedora-33`      | Fedora 33                |
+| `fedora-35`      | Fedora 35                |
 | `oracle-8`       | Oracle Linux 8            |
 | `rocky-8`        | Rocky Linux 8             |
 | `ubuntu-bionic`  | Ubuntu Bionic            |
