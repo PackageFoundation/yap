@@ -2,31 +2,29 @@
 
 ![yap-logo](https://raw.githubusercontent.com/M0Rf30/yap/main/images/yap.png)
 
-Yap allows building packages for multiple linux distributions with a
-consistent package spec format. Currently `deb`, `rpm` and `pacman` packages
-are available for several linux distributions.
+Yap allows building packages for multiple GNU/Linux distributions with a
+consistent package spec format. Currently `deb`, `rpm` and `pacman` packages are
+available for several distributions.
 
-Builds are done on Docker
-containers without needing to setup any virtual machines or install any
-software other than Docker.
+Builds are done on Docker containers without needing to setup any virtual
+machines or install any software other than Docker.
 
-All packages are built using a simple format that
-is similar to [PKGBUILD](https://wiki.archlinux.org/index.php/PKGBUILD) from
-Arch Linux.
+All packages are built using a simple format that is similar to
+[PKGBUILD](https://wiki.archlinux.org/index.php/PKGBUILD) from Arch Linux.
 
-Each distribution is different and will still require different
-build instructions, but a consistent build process and format can be used for
-all builds.
+Each distribution is different and will still require different build
+instructions, but a consistent build process and format can be used for all
+builds.
 
-Docker only supports 64-bit containers, Yap can't be used to
-build packages 32-bit packages.
+Docker only supports 64-bit containers, Yap can't be used to build packages
+32-bit packages.
 
 ## Initialize
 
-It is recommended to build the OCI images locally instead of pulling each
-image from the Docker Hub. A script is located in the docker directory to
-assist with this. Always run the `clean.sh` script to clear any existing yap
-images. Building the images can take several hours.
+It is recommended to build the OCI images locally instead of pulling each image
+from the Docker Hub. A script is located in the docker directory to assist with
+this. Always run the `clean.sh` script to clear any existing yap images.
+Building the images can take several hours.
 
 ```sh
 cd ~/go/src/github.com/packagefoundation/yap/docker
@@ -117,12 +115,10 @@ key:ubuntu="this will apply only to Ubuntu  builds"
 Directives are used to specify variables that only apply to a limited set of
 build targets.
 
-All variables can use directives including user defined
-variables.
+All variables can use directives including user defined variables.
 
-To use directives include the directive after a
-variable separated by a colon such as
-`pkgdesc:ubuntu="This description will only apply to Ubuntu packages"`.
+To use directives include the directive after a variable separated by a colon
+such as `pkgdesc:ubuntu="This description will only apply to Ubuntu packages"`.
 
 The directives above are sorted from lowest to the highest priority.
 
@@ -165,5 +161,5 @@ See [LICENSE](LICENSE) file for details.
 
 ## Credits
 
-[Zachary Huff](https://github.com/zachhuff386), for his work on
-Pacur, on which Yap is based on.
+[Zachary Huff](https://github.com/zachhuff386), for his work on Pacur, on which
+Yap is based on.
