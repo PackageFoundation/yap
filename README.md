@@ -23,7 +23,7 @@ build packages 32-bit packages.
 
 ## Initialize
 
-It is recommended to build the Docker images locally instead of pulling each
+It is recommended to build the OCI images locally instead of pulling each
 image from the Docker Hub. A script is located in the docker directory to
 assist with this. Always run the `clean.sh` script to clear any existing yap
 images. Building the images can take several hours.
