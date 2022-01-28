@@ -26,6 +26,7 @@ WORKDIR /project
 RUN \
   go build -ldflags "-w -s" -trimpath -mod=readonly -modcacherw -o /usr/bin/; \
    yap completion bash > /etc/bash_completion.d/yap; \
-   echo "source /usr/share/bash-completion/bash_completion" >> /etc/bash.bashrc
+   echo "source /usr/share/bash-completion/bash_completion" >> /etc/bash.bashrc; \
+   rm -rf /project
 
 ENTRYPOINT ["yap"]
