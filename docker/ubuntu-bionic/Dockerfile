@@ -3,7 +3,7 @@ LABEL maintainer="Yap <contact@packagefoundation.org>"
 
 ENV DEBIAN_FRONTEND=noninteractive
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-RUN \  
+RUN \
   apt-get update; \
   apt-get upgrade; \
   apt-get install -y --no-install-recommends \
@@ -28,5 +28,5 @@ RUN \
    yap completion bash > /etc/bash_completion.d/yap; \
    echo "source /usr/share/bash-completion/bash_completion" >> /etc/bash.bashrc; \
    rm -rf /project
-  
+
 ENTRYPOINT ["yap"]

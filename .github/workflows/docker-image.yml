@@ -44,7 +44,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            packagefoundation/yap-amazon-1:latest 
+            packagefoundation/yap-amazon-1:latest
             ghcr.io/packagefoundation/yap-amazon-1:latest
           file: docker/amazon-1/Dockerfile
 
@@ -55,7 +55,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            packagefoundation/yap-amazon-2:latest 
+            packagefoundation/yap-amazon-2:latest
             ghcr.io/packagefoundation/yap-amazon-2:latest
           file: docker/amazon-2/Dockerfile
 
@@ -66,7 +66,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            packagefoundation/yap-arch:latest 
+            packagefoundation/yap-arch:latest
             ghcr.io/packagefoundation/yap-arch:latest
           file: docker/arch/Dockerfile
 
@@ -77,7 +77,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            packagefoundation/yap-centos-8:latest 
+            packagefoundation/yap-centos-8:latest
             ghcr.io/packagefoundation/yap-centos-8:latest
           file: docker/centos-8/Dockerfile
 
@@ -88,7 +88,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            packagefoundation/yap-debian-buster:latest 
+            packagefoundation/yap-debian-buster:latest
             ghcr.io/packagefoundation/yap-debian-buster:latest
           file: docker/debian-buster/Dockerfile
 
@@ -99,7 +99,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            packagefoundation/yap-debian-jessie:latest 
+            packagefoundation/yap-debian-jessie:latest
             ghcr.io/packagefoundation/yap-debian-jessie:latest
           file: docker/debian-jessie/Dockerfile
 
@@ -110,7 +110,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            packagefoundation/yap-debian-stretch:latest 
+            packagefoundation/yap-debian-stretch:latest
             ghcr.io/packagefoundation/yap-debian-stretch:latest
           file: docker/debian-stretch/Dockerfile
 
@@ -121,7 +121,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            packagefoundation/yap-fedora-35:latest 
+            packagefoundation/yap-fedora-35:latest
             ghcr.io/packagefoundation/yap-fedora-35:latest
           file: docker/fedora-35/Dockerfile
 
@@ -132,7 +132,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            packagefoundation/yap-opensuse-tubleweed:latest 
+            packagefoundation/yap-opensuse-tubleweed:latest
             ghcr.io/packagefoundation/yap-opensuse-tubleweed:latest
           file: docker/opensuse-tubleweed/Dockerfile
 
@@ -143,7 +143,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            packagefoundation/yap-oracle-8:latest 
+            packagefoundation/yap-oracle-8:latest
             ghcr.io/packagefoundation/yap-oracle-8:latest
           file: docker/oracle-8/Dockerfile
 
@@ -154,7 +154,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            packagefoundation/yap-rocky-8:latest 
+            packagefoundation/yap-rocky-8:latest
             ghcr.io/packagefoundation/yap-rocky-8:latest
           file: docker/rocky-8/Dockerfile
 
@@ -165,7 +165,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            packagefoundation/yap-ubuntu-bionic:latest 
+            packagefoundation/yap-ubuntu-bionic:latest
             ghcr.io/packagefoundation/yap-ubuntu-bionic:latest
           file: docker/ubuntu-bionic/Dockerfile
 
@@ -176,7 +176,7 @@ jobs:
           push: true
           labels: ${{ steps.meta.outputs.labels }}
           tags: |
-            packagefoundation/yap-ubuntu-focal:latest 
+            packagefoundation/yap-ubuntu-focal:latest
             ghcr.io/packagefoundation/yap-ubuntu-focal:latest
           file: docker/ubuntu-focal/Dockerfile
 
