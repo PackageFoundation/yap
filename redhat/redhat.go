@@ -291,10 +291,12 @@ func (r *Redhat) copy(destination string) (err error) {
 
 	for _, arch := range archs {
 		rpmDestination := filepath.Join(r.Pack.Home, destination)
+
 		err = utils.ExistsMakeDir(rpmDestination)
 		if err != nil {
 			return
 		}
+
 		err = utils.CopyFiles(filepath.Join(
 			r.rpmsDir,
 			arch.Name(),

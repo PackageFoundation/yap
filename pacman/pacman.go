@@ -282,10 +282,12 @@ func (p *Pacman) copy(destination string) (err error) {
 
 	for _, pkg := range pkgs {
 		pkgDestination := filepath.Join(p.Pack.Home, destination)
+
 		err = utils.ExistsMakeDir(pkgDestination)
 		if err != nil {
 			return
 		}
+
 		err = utils.CopyFile("", pkg, pkgDestination, false)
 		if err != nil {
 			return
