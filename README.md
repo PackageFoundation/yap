@@ -100,7 +100,6 @@ key:ubuntu="this will apply only to Ubuntu  builds"
 | `ubuntu`         | all Ubuntu releases      |
 | `amazon-1`       | Amazon Linux 1            |
 | `amazon-2`       | Amazon Linux 2            |
-| `centos-8`       | CentOS 8                 |
 | `debian-jessie`  | Debian Jessie            |
 | `debian-stretch` | Debian Stretch           |
 | `debian-buster`  | Debian Buster            |
@@ -136,7 +135,6 @@ The directives above are sorted from lowest to the highest priority.
 | `ubuntu`         | all Ubuntu releases      |
 | `amazon-1`       | Amazon Linux 1            |
 | `amazon-2`       | Amazon Linux 2            |
-| `centos-8`       | CentOS 8                 |
 | `debian-jessie`  | Debian Jessie            |
 | `debian-stretch` | Debian Stretch           |
 | `debian-buster`  | Debian Buster            |
