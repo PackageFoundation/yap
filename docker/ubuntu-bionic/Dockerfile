@@ -8,8 +8,8 @@ RUN \
   apt-get upgrade; \
   apt-get install -y --no-install-recommends \
   bash-completion build-essential ca-certificates curl git reprepro rsync sudo tzdata zip; \
-  curl -sL https://dl.google.com/go/go1.17.6.linux-amd64.tar.gz --output go.tar.gz; \
-  echo "231654bbf2dab3d86c1619ce799e77b03d96f9b50770297c8f4dff8836fc8ca2 go.tar.gz" | sha256sum -c - ; \
+  curl -sL https://dl.google.com/go/go1.18.1.linux-amd64.tar.gz --output go.tar.gz; \
+  echo "b3b815f47ababac13810fc6021eb73d65478e0b2db4b09d348eefad9581a2334 go.tar.gz" | sha256sum -c - ; \
   tar -C /usr/lib -xf go.tar.gz; \
   rm -f go.tar.gz; \
   ln -sf /usr/lib/go/bin/go /usr/bin/go; \
