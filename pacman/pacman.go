@@ -274,21 +274,14 @@ func (p *Pacman) clean() (err error) {
 	return
 }
 
-func (p *Pacman) copy(destination string) (err error) {
+func (p *Pacman) copy() (err error) {
 	pkgs, err := utils.FindExt(p.pacmanDir, ".pkg.tar.zst")
 	if err != nil {
 		return
 	}
 
 	for _, pkg := range pkgs {
-		pkgDestination := filepath.Join(p.Pack.Home, destination)
-
-		err = utils.ExistsMakeDir(pkgDestination)
-		if err != nil {
-			return
-		}
-
-		err = utils.CopyFile("", pkg, pkgDestination, false)
+		err = utils.CopyFile("", pkg, p.Pack.Home, false)
 		if err != nil {
 			return
 		}
@@ -301,7 +294,7 @@ func (p *Pacman) remDirs() {
 	os.RemoveAll(p.pacmanDir)
 }
 
-func (p *Pacman) Build(outputDir string) ([]string, error) {
+func (p *Pacman) Build() ([]string, error) {
 	err := p.makeDirs()
 	if err != nil {
 		return nil, err
@@ -324,7 +317,7 @@ func (p *Pacman) Build(outputDir string) ([]string, error) {
 		return nil, err
 	}
 
-	err = p.copy(outputDir)
+	err = p.copy()
 	if err != nil {
 		return nil, err
 	}

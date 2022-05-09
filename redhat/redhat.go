@@ -284,7 +284,7 @@ func (r *Redhat) clean() (err error) {
 	return
 }
 
-func (r *Redhat) copy(destination string) (err error) {
+func (r *Redhat) copy() (err error) {
 	archs, err := ioutil.ReadDir(r.rpmsDir)
 	if err != nil {
 		fmt.Printf("redhat: Failed to find rpms from '%s'\n",
@@ -294,17 +294,10 @@ func (r *Redhat) copy(destination string) (err error) {
 	}
 
 	for _, arch := range archs {
-		rpmDestination := filepath.Join(r.Pack.Home, destination)
-
-		err = utils.ExistsMakeDir(rpmDestination)
-		if err != nil {
-			return
-		}
-
 		err = utils.CopyFiles(filepath.Join(
 			r.rpmsDir,
 			arch.Name(),
-		), rpmDestination, false)
+		), r.Pack.Home, false)
 		if err != nil {
 			return
 		}
@@ -317,7 +310,7 @@ func (r *Redhat) remDirs() {
 	os.RemoveAll(r.redhatDir)
 }
 
-func (r *Redhat) Build(outputDir string) ([]string, error) {
+func (r *Redhat) Build() ([]string, error) {
 	err := r.makeDirs()
 	if err != nil {
 		return nil, err
@@ -345,7 +338,7 @@ func (r *Redhat) Build(outputDir string) ([]string, error) {
 		return nil, err
 	}
 
-	err = r.copy(outputDir)
+	err = r.copy()
 	if err != nil {
 		return nil, err
 	}

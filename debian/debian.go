@@ -242,31 +242,27 @@ func (d *Debian) clean() (err error) {
 	return
 }
 
-func (d *Debian) dpkgDeb(outputDir string) (string, error) {
+func (d *Debian) dpkgDeb() (string, error) {
 	err := utils.Exec("", "dpkg-deb", "-b", d.Pack.PackageDir)
 	if err != nil {
 		return "", err
 	}
 
-	_, file := filepath.Split(filepath.Clean(d.Pack.PackageDir))
-	path := filepath.Join(d.Pack.Root, file+".deb")
-	newFile := fmt.Sprintf("%s_%s-%s%s_%s.deb",
-		d.Pack.PkgName, d.Pack.PkgVer, d.Pack.PkgRel, d.Pack.Release,
-		d.Pack.Arch)
-	newPath := filepath.Join(d.Pack.Home, outputDir)
+	_, dir := filepath.Split(filepath.Clean(d.Pack.PackageDir))
+	path := filepath.Join(d.Pack.Root, dir+".deb")
+	newPath := filepath.Join(d.Pack.Home,
+		fmt.Sprintf("%s_%s-%s%s_%s.deb",
+			d.Pack.PkgName, d.Pack.PkgVer, d.Pack.PkgRel, d.Pack.Release,
+			d.Pack.Arch))
+
 	os.Remove(newPath)
 
-	err = utils.ExistsMakeDir(newPath)
+	err = utils.CopyFile("", path, newPath, false)
 	if err != nil {
 		return "", err
 	}
 
-	err = utils.CopyFile("", path, filepath.Join(newPath, newFile), false)
-	if err != nil {
-		return "", err
-	}
-
-	return filepath.Join(newPath, newFile), nil
+	return newPath, nil
 }
 
 func (d *Debian) Prep() (err error) {
@@ -287,7 +283,7 @@ func (d *Debian) Update() (err error) {
 	return
 }
 
-func (d *Debian) Build(outputDir string) ([]string, error) {
+func (d *Debian) Build() ([]string, error) {
 	var err error
 	d.installSize, err = utils.GetDirSize(d.Pack.PackageDir)
 
@@ -344,7 +340,7 @@ func (d *Debian) Build(outputDir string) ([]string, error) {
 		return nil, err
 	}
 
-	dpkgDeb, err := d.dpkgDeb(outputDir)
+	dpkgDeb, err := d.dpkgDeb()
 	if err != nil {
 		return nil, err
 	}
