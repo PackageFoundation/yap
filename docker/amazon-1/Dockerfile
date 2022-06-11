@@ -9,8 +9,8 @@ RUN \
   yum -y groupinstall 'Development Tools'; \
   yum -y install \
   automake bash-completion createrepo expect gcc git make openssl rpm-build rpm-sign rsync sudo tar zip; \
-  curl -sL https://dl.google.com/go/go1.18.1.linux-amd64.tar.gz --output go.tar.gz; \
-  echo "b3b815f47ababac13810fc6021eb73d65478e0b2db4b09d348eefad9581a2334 go.tar.gz" | sha256sum -c - ; \
+  curl -sL https://dl.google.com/go/go1.18.3.linux-amd64.tar.gz --output go.tar.gz; \
+  echo "956f8507b302ab0bb747613695cdae10af99bbd39a90cae522b7c0302cc27245 go.tar.gz" | sha256sum -c - ; \
   tar -C /usr/lib -xf go.tar.gz; \
   rm -f go.tar.gz; \
   ln -sf /usr/lib/go/bin/go /usr/bin/go; \
