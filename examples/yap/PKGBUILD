@@ -1,20 +1,16 @@
-pkgname="yap"
-pkgver="1.0"
-pkgrel="1"
+pkgname=yap
+pkgver=1.0
+pkgrel=1
 pkgdesc="Package software with ease"
 pkgdesc_centos="Package software with ease for CentOS"
 pkgdesc_debian="Package software with ease for Debian"
 pkgdesc_fedora="Package software with ease for Fedora"
 pkgdesc_ubuntu="Package software with ease for Ubuntu"
-pkgdesclong=(
-  "Yap allows building packages for multiple GNU/Linux distributions"
-  "with a consistent package spec format"
-)
 maintainer="Example <example@yap.org>"
-arch=("amd64")
-license=("GPLv3")
-section="utils"
-priority="optional"
+arch=('amd64')
+license=('GPLv3')
+section=utils
+priority=optional
 url="https://github.com/PackageFoundation/${pkgname}"
 depends=('glibc')
 depends__apt=('libc6')

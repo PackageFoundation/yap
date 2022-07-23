@@ -149,8 +149,6 @@ func Create(path string) (*os.File, error) {
 			string(constants.ColorYellow),
 			path,
 			string(constants.ColorWhite))
-
-		return file, err
 	}
 
 	return file, err
@@ -185,8 +183,6 @@ func Open(path string) (*os.File, error) {
 			string(constants.ColorYellow),
 			path,
 			string(constants.ColorWhite))
-
-		return file, err
 	}
 
 	return file, err
