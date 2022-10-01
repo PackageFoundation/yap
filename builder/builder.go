@@ -58,7 +58,7 @@ func (b *Builder) build() error {
 		fmt.Sprintf("yap_%s_build", b.id))
 	defer os.Remove(path)
 
-	err := runScript(path, b.Pack.Build)
+	err := runScript(b.Pack.Build)
 	if err != nil {
 		return err
 	}
@@ -71,7 +71,7 @@ func (b *Builder) Package() error {
 		fmt.Sprintf("yap_%s_package", b.id))
 	defer os.Remove(path)
 
-	err := runScript(path, b.Pack.Package)
+	err := runScript(b.Pack.Package)
 	if err != nil {
 		return err
 	}

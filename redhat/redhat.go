@@ -3,7 +3,6 @@ package redhat
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
@@ -188,7 +187,7 @@ func (r *Redhat) makeDirs() error {
 
 func (r *Redhat) copy() error {
 	var err error
-	archs, err := ioutil.ReadDir(r.rpmsDir)
+	archs, err := os.ReadDir(r.rpmsDir)
 
 	if err != nil {
 		fmt.Printf("redhat: Failed to find rpms from '%s'\n",

@@ -10,7 +10,7 @@ import (
 	"mvdan.cc/sh/v3/syntax"
 )
 
-func runScript(path string, cmds string) error {
+func runScript(cmds string) error {
 	buildScript, _ := syntax.NewParser().Parse(strings.NewReader(cmds), "")
 
 	runner, _ := interp.New(

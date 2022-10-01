@@ -77,9 +77,7 @@ func (p *Pack) parseDirective(input string) (string, int, error) {
 
 		return key, pry, err
 	case len(split) != numElem:
-		fmt.Printf("pack: Invalid use of ':' directive in '%s'\n", input)
-
-		return key, pry, err
+		return key, pry, fmt.Errorf("pack: Invalid use of '__' directive in '%w'", err)
 	default:
 		pry = -1
 	}
@@ -89,9 +87,7 @@ func (p *Pack) parseDirective(input string) (string, int, error) {
 	}
 
 	if key == "pkgver" || key == "pkgrel" {
-		fmt.Printf("pack: Cannot use directive for '%s'\n", key)
-
-		return key, pry, err
+		return key, pry, fmt.Errorf("pack: Cannot use directive for '%w'", err)
 	}
 
 	dirc := split[1]

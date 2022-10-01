@@ -3,7 +3,7 @@ package project
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 	"path/filepath"
 
@@ -94,7 +94,7 @@ func MultiProject(distro string, release string, path string) (*MultipleProject,
 		}
 	}
 
-	prjBsContent, err := ioutil.ReadAll(file)
+	prjBsContent, err := io.ReadAll(file)
 	if err != nil {
 		return nil, err
 	}
